@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LocalStorage</title>
+</head>
+<body>
+    <form action="" onsubmit="userData(); return false">
+        <label for="">userName</label>
+        <input type="text" id="name">
+         <label for="">FatherName</label> 
+        <input type="text" id="Fname">
+        <input type="submit" value="submit">
+    </form>
+
+
+    <script>
+        let userArray = []
+        
+        function userData(){
+
+            let userName=document.getElementById('name').value
+            let FName=document.getElementById('Fname').value
+
+        console.log(userName, FName)
+
+        let userobj= {
+            userName,
+            FName
+        }
+        // console.log(userobj.userName, userobj.FName)
+        userArray.push(userobj)
+    
+        let a = JSON.stringify(userArray)
+        
+
+        console.log(a)
+
+        localStorage.setItem('users',a)
+    }
+
+    let ab = JSON.parse(localStorage.getItem('users'))
+console.log(ab)
+
+    </script>
+</body>
+</html>
